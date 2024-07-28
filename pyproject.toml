@@ -1,0 +1,18 @@
+[project]
+name = "ITMO Survey Project"
+version = "0.1.0"
+description = "Платформа для оценки сложности моделей"
+authors = [
+    {name = "leobellap", email = "leobellap@gmail.com"},
+]
+dependencies = [
+    "Flask>=3.0.3",
+    "ruff>=0.5.5",
+]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
