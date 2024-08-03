@@ -1,12 +1,11 @@
 from sqlalchemy import create_engine, text
+import configparser
 
-engine = create_engine(
-    "postgresql://itmo_survey_owner:fQAk7mM9FIpZ@ep-weathered-sun-a28zxzts.eu-central-1.aws.neon.tech/itmo_survey?sslmode=require"
-)
+config = configparser.ConfigParser()
+config.read("config.ini")
+conn_string = config.get("psql", "conn_string")
 
-with engine.connect() as conn:
-    result = conn.execute(text("select * from users_data"))
-    print(result.all())
+engine = create_engine(conn_string)
 
 
 def save_user_data(user_data):
