@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+from database import save_user_data
 
 app = Flask(__name__)
 
@@ -11,6 +12,13 @@ def index():
 @app.route("/form")
 def form():
     return render_template("form.html")
+
+
+@app.route("/apply", methods=["post"])
+def apply_data():
+    data = request.form
+    save_user_data(data)
+    return render_template("info.html")
 
 
 @app.route("/info")
