@@ -1,129 +1,122 @@
-{% extends 'base.html' %} {% block content %}
-
-<div class="mx-auto flex w-fit gap-[20px] p-[40px]">
-  <div class="flex flex-col gap-[30px] rounded-[20px] bg-white p-[20px]">
-    <div class="flex flex-col gap-[10px]">
-      <p id="model-name" class="text-[21px] font-bold">Model A</p>
-      <hr />
-    </div>
-    <img
-      class="h-[600px] w-[900px]"
-      id="model-image"
-      src="static/img/webp/rect1-min.webp"
-      alt=""
-    />
-
-    <div class="flex flex-col gap-[10px]">
-      <p class="text-[18px]">Model selection:</p>
-      <input
-        type="range"
-        class="cursor-pointer appearance-none rounded-lg bg-slate-200"
-        min="0"
-        max="9"
-        value="0"
-        name=""
-        id="model-slider"
-      />
+{% extends 'base.html' %}
+{% block content %}
+  <div class="flex h-dvh items-center justify-center">
+    <div class="mx-auto my-[40px] flex w-fit gap-[20px]">
+      <div class="flex h-fit flex-col gap-[30px] rounded-[20px] bg-white p-[20px]">
+        <div class="flex flex-col gap-[10px]">
+          <p class="text-[21px] font-bold">Control panel</p>
+          <hr />
+        </div>
+        <div class="flex flex-col gap-[10px] rounded-[20px] border-[1px] border-[#E100FF] p-[20px] text-[14px]">
+          <p>Step complexity: complexity of the step</p>
+          <p>Process step: current step of the process</p>
+        </div>
+        <div class="flex flex-col gap-[10px]">
+          <p class="text-[18px]">Step complexity:</p>
+          <input type="range"
+                 class="cursor-pointer appearance-none rounded-lg bg-slate-200"
+                 min="1"
+                 max="9"
+                 value="1"
+                 id="complexitySlider" />
+        </div>
+        <div class="flex flex-col gap-[10px]">
+          <p class="text-[18px]">Process step:</p>
+          <input type="range"
+                 class="cursor-pointer appearance-none rounded-lg bg-slate-200"
+                 min="1"
+                 max="9"
+                 value="1"
+                 name=""
+                 id="stepSlider" />
+        </div>
+      </div>
+      <div class="flex flex-col gap-[30px] rounded-[20px] bg-white p-[20px]">
+        <div class="flex flex-col gap-[10px]">
+          <div class="text-[21px] flex gap-[10px]">
+            <div class="flex gap-[5px]">
+              <p class="font-bold">Step:</p>
+              <p id="stepName"></p>
+            </div>
+            <div class="flex gap-[5px]">
+              <p class="font-bold">Complexity:</p>
+              <p id="complexityLevel"></p>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <img class="h-[682px] w-[900px] object-contain"
+             id="processImage"
+             src="static/images/webp/rect1-min.webp"
+             alt="" />
+      </div>
+      <div class="rounded-[20px] bg-white p-[20px]">
+        <form action="/model_results"
+              method="post"
+              class="flex flex-col gap-[30px] text-[18px]">
+          <div class="flex flex-col gap-[10px]">
+            <p class="text-[21px] font-bold">Select the best model</p>
+            <hr />
+          </div>
+          <select class="rounded-[20px] border px-[10px] py-[5px] focus:outline-none focus:ring-4 focus:ring-violet-300"
+                  name="best-step"
+                  id="best-step">
+            <option value="1">Step 1</option>
+            <option value="2">Step 2</option>
+            <option value="3">Step 3</option>
+            <option value="4">Step 4</option>
+          </select>
+          <select class="rounded-[20px] border px-[10px] py-[5px] focus:outline-none focus:ring-4 focus:ring-violet-300"
+                  name="best-complexity"
+                  id="best-complexity">
+            <option value="1">Complexity 1</option>
+            <option value="2">Complexity 2</option>
+            <option value="3">Complexity 3</option>
+            <option value="4">Complexity 4</option>
+          </select>
+          <div class="flex flex-col gap-[10px]">
+            <p class="text-[21px] font-bold">Why is it the best model?</p>
+            <hr />
+          </div>
+          <div class="flex flex-col gap-[10px]">
+            <p>Param A</p>
+            <input type="checkbox" class="w-fit" name="param_a" id="" />
+          </div>
+          <div class="flex flex-col gap-[10px]">
+            <p>Param B</p>
+            <input type="checkbox" class="w-fit" name="param_b" id="" />
+          </div>
+          <div class="flex flex-col gap-[10px]">
+            <p>Param C</p>
+            <input type="checkbox" class="w-fit" name="param_c" id="" />
+          </div>
+          <div class="flex flex-col gap-[10px]">
+            <p>Param D</p>
+            <input type="checkbox" class="w-fit" name="param_d" id="" />
+          </div>
+          <div class="flex flex-col gap-[10px]">
+            <p>Param E</p>
+            <input type="checkbox" class="w-fit" name="param_e" id="" />
+          </div>
+          <div>
+            <input type="hidden" name="age" value="{{ user_data.age }}" />
+            <input type="hidden" name="gender" value="{{ user_data.gender }}" />
+            <input type="hidden" name="education" value="{{ user_data.education }}" />
+            <input type="hidden"
+                   name="specialization"
+                   value="{{ user_data.specialization }}" />
+            <input type="hidden"
+                   name="current_employer"
+                   value="{{ user_data.current_employer }}" />
+            <input type="hidden"
+                   name="current_position"
+                   value="{{ user_data.current_position }}" />
+            <input type="hidden" name="experience" value="{{ user_data.experience }}" />
+          </div>
+          <button type="submit" class="button">Confirm</button>
+        </form>
+      </div>
     </div>
   </div>
-
-  <div class="rounded-[20px] bg-white p-[20px]">
-    <form
-      action="/model_results"
-      method="post"
-      class="flex flex-col gap-[30px] text-[18px]"
-    >
-      <div class="flex flex-col gap-[10px]">
-        <p class="text-[21px] font-bold">Select the best model</p>
-        <hr />
-      </div>
-
-      <select
-        class="rounded-[20px] border px-[10px] py-[5px] focus:outline-none focus:ring-4 focus:ring-violet-300"
-        name="best-model"
-        id="best-model"
-      >
-        <option value="Model A">Model A</option>
-        <option value="Model B">Model B</option>
-        <option value="Model C">Model C</option>
-        <option value="Model D">Model D</option>
-      </select>
-
-      <div class="flex flex-col gap-[10px]">
-        <p class="text-[21px] font-bold">Why is it the best model?</p>
-        <hr />
-      </div>
-
-      <div class="flex flex-col gap-[10px]">
-        <p>Param A</p>
-        <input type="checkbox" class="w-fit" name="Param A" id="" />
-      </div>
-
-      <div class="flex flex-col gap-[10px]">
-        <p>Param B</p>
-        <input type="checkbox" class="w-fit" name="Param B" id="" />
-      </div>
-
-      <div class="flex flex-col gap-[10px]">
-        <p>Param C</p>
-        <input type="checkbox" class="w-fit" name="Param C" id="" />
-      </div>
-
-      <div class="flex flex-col gap-[10px]">
-        <p>Param D</p>
-        <input type="checkbox" class="w-fit" name="Param D" id="" />
-      </div>
-
-      <div class="flex flex-col gap-[10px]">
-        <p>Param E</p>
-        <input type="checkbox" class="w-fit" name="Param E" id="" />
-      </div>
-
-      <div class="flex flex-col gap-[10px]">
-        <p>Param F</p>
-        <input type="checkbox" class="w-fit" name="Param F" id="" />
-      </div>
-
-      <div>
-        <input type="hidden" name="age" value="{{user_data.age}}" />
-
-        <input type="hidden" name="gender" value="{{user_data.gender}}" />
-
-        <input type="hidden" name="education" value="{{user_data.education}}" />
-
-        <input
-          type="hidden"
-          name="specialization"
-          value="{{user_data.specialization}}"
-        />
-
-        <input
-          type="hidden"
-          name="current_employer"
-          value="{{user_data.current_employer}}"
-        />
-
-        <input
-          type="hidden"
-          name="current_position"
-          value="{{user_data.current_position}}"
-        />
-
-        <input
-          type="hidden"
-          name="experience"
-          value="{{user_data.experience}}"
-        />
-      </div>
-
-      <button
-        type="submit"
-        class="w-fit rounded-[20px] border bg-[#E100FF] px-[25px] py-[10px] text-[18px] text-white hover:bg-[#B400CC] focus:outline-none focus:ring-4 focus:ring-violet-300"
-      >
-        Confirm
-      </button>
-    </form>
-  </div>
-</div>
-<script src="/static/script.js"></script>
+  <script src="/static/select_image.js"></script>
 {% endblock %}

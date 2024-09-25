@@ -1,29 +1,40 @@
-{% extends 'base.html' %} {% block content %}
-<div hx-target="this">
-  <div class="flex h-dvh items-center justify-center">
-    <div
-      class="mx-auto max-w-[1200px] rounded-[20px] border border-none bg-white p-[40px]"
-    >
-      <div class="flex flex-col gap-[30px]">
-        <h1 class="text-[24px] font-bold">Добро пожаловать!</h1>
-        <h2 class="text-[18px]">
-          Мы приглашаем специалистов в области медицины и здравоохранения
-          принять участие в нашем опросе. <br />Наша цель - изучить субъективное
-          восприятие сложности моделей процессов, чтобы улучшить работу<br />
-          систем поддержки принятия врачебных решений и медицинских
-          информационных систем. Ваш вклад <br />поможет нам сделать медицинскую
-          практику более эффективной и точной. Спасибо, что участвуете! 😊
-        </h2>
-        <a href="form" hx-get="{{url_for('form')}}">
-          <button
-            class="rounded-[20px] border bg-[#E100FF] px-[25px] py-[10px] text-[18px] text-white hover:bg-[#B400CC] focus:outline-none focus:ring-4 focus:ring-violet-300"
-          >
-            Начать опрос
-          </button>
-        </a>
+{% extends 'base.html' %}
+{% block content %}
+  <div hx-target="this">
+    <div class="flex h-dvh items-center justify-center">
+      <div class="mx-auto max-w-[1200px] rounded-[20px] border border-none bg-white p-[40px]">
+        <div class="flex flex-col gap-[30px]">
+          <h1 class="text-[24px] font-bold">Welcome! 😊</h1>
+          <ol class="flex flex-col gap-[10px] text-[18px]">
+            <div class="flex gap-[10px]">
+              <p>1.</p>
+              <li>
+                We invite medical and healthcare professionals to take part in our
+                survey.
+              </li>
+            </div>
+            <div class="flex gap-[10px]">
+              <p>2.</p>
+              <li>
+                Our goal is to study the subjective perception of the complexity of
+                process models
+                <br />
+                in order to improve the performance of decision support systems.
+              </li>
+            </div>
+            <div class="flex gap-[10px]">
+              <p>3.</p>
+              <li>
+                Your contributions will help us make the practice of medicine more
+                efficient and accurate.
+              </li>
+            </div>
+          </ol>
+          <a href="form" hx-get="{{ url_for("form") }}" hx-swap="transition:true">
+            <button class="button">Start the survey</button>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 {% endblock %}
