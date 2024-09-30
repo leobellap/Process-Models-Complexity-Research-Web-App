@@ -1,88 +1,86 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div hx-target="this">
-    <div class="mx-auto my-[54px] flex w-[900px] flex-col gap-[30px] rounded-[20px] bg-white p-[40px]">
-      <div class="flex flex-col gap-[10px]">
-        <h1 class="text-[24px] font-bold">General demographic information about survey participants</h1>
-        <hr />
-      </div>
-      <form action="/apply"
-            hx-post="{{ url_for("apply_data") }}"
-            hx-swap="transition:true"
-            class="flex flex-col gap-[30px]"
-            method="post">
-        <div class="flex flex-col gap-[10px] text-[18px]">
-          <div class="flex items-center gap-[10px]">
-            <p>1.</p>
-            <p>Age</p>
-          </div>
-          <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring focus:ring-violet-300"
-                 type="text"
-                 name="age"
-                 id="" />
-        </div>
-        <div class="flex flex-col gap-[10px] text-[18px]">
-          <div class="flex items-center gap-[10px]">
-            <p>2.</p>
-            <p>Sex</p>
-          </div>
-          <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring focus:ring-violet-300"
-                 type="text"
-                 name="gender"
-                 id="" />
-        </div>
-        <div class="flex flex-col gap-[10px] text-[18px]">
-          <div class="flex items-center gap-[10px]">
-            <p>3.</p>
-            <p>Education</p>
-          </div>
-          <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring focus:ring-violet-300"
-                 type="text"
-                 name="education"
-                 id="" />
-        </div>
-        <div class="flex flex-col gap-[10px] text-[18px]">
-          <div class="flex items-center gap-[10px]">
-            <p>4.</p>
-            <p>Specialization</p>
-          </div>
-          <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring focus:ring-violet-300"
-                 type="text"
-                 name="specialization"
-                 id="" />
-        </div>
-        <div class="flex flex-col gap-[10px] text-[18px]">
-          <div class="flex items-center gap-[10px]">
-            <p>5.</p>
-            <p>Сurrent place of work</p>
-          </div>
-          <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring focus:ring-violet-300"
-                 type="text"
-                 name="current_employer"
-                 id="" />
-        </div>
-        <div class="flex flex-col gap-[10px] text-[18px]">
-          <div class="flex items-center gap-[10px]">
-            <p>6.</p>
-            <p>Сurrent position</p>
-          </div>
-          <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring focus:ring-violet-300"
-                 type="text"
-                 name="current_position"
-                 id="" />
-        </div>
-        <div class="flex flex-col gap-[10px] text-[18px]">
-          <div class="flex items-center gap-[10px]">
-            <p>7.</p>
-            <p>Work experience</p>
-          </div>
-          <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring focus:ring-violet-300"
-                 type="text"
-                 name="experience"
-                 id="" />
-        </div>
-        <input class="button" type="submit" value="Continue" />
-      </form>
+  <div class="mx-auto my-[54px] flex w-[900px] flex-col gap-[30px] rounded-[20px] bg-white p-[40px]">
+    <div class="flex flex-col gap-[10px]">
+      <h1 class="text-[24px] font-bold">General demographic information about survey participants</h1>
+      <hr />
     </div>
+    <form action="/save_form"
+          hx-post="{{ url_for("save_form") }}"
+          hx-swap="transition:true"
+          class="flex flex-col gap-[30px]"
+          method="post">
+      <div class="flex flex-col gap-[10px] text-[16px]">
+        <div class="flex items-center gap-[10px]">
+          <p>1.</p>
+          <p>Age</p>
+        </div>
+        <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring-1 focus:ring-violet-400"
+               type="text"
+               name="age"
+               id="" />
+      </div>
+      <div class="flex flex-col gap-[10px] text-[16px]">
+        <div class="flex items-center gap-[10px]">
+          <p>2.</p>
+          <p>Sex</p>
+        </div>
+        <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring-1 focus:ring-violet-400"
+               type="text"
+               name="gender"
+               id="" />
+      </div>
+      <div class="flex flex-col gap-[10px] text-[16px]">
+        <div class="flex items-center gap-[10px]">
+          <p>3.</p>
+          <p>Education</p>
+        </div>
+        <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring-1 focus:ring-violet-400"
+               type="text"
+               name="education"
+               id="" />
+      </div>
+      <div class="flex flex-col gap-[10px] text-[16px]">
+        <div class="flex items-center gap-[10px]">
+          <p>4.</p>
+          <p>Specialization</p>
+        </div>
+        <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring-1 focus:ring-violet-400"
+               type="text"
+               name="specialization"
+               id="" />
+      </div>
+      <div class="flex flex-col gap-[10px] text-[16px]">
+        <div class="flex items-center gap-[10px]">
+          <p>5.</p>
+          <p>Сurrent place of work</p>
+        </div>
+        <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring-1 focus:ring-violet-400"
+               type="text"
+               name="current_employer"
+               id="" />
+      </div>
+      <div class="flex flex-col gap-[10px] text-[16px]">
+        <div class="flex items-center gap-[10px]">
+          <p>6.</p>
+          <p>Сurrent position</p>
+        </div>
+        <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring-1 focus:ring-violet-400"
+               type="text"
+               name="current_position"
+               id="" />
+      </div>
+      <div class="flex flex-col gap-[10px] text-[16px]">
+        <div class="flex items-center gap-[10px]">
+          <p>7.</p>
+          <p>Work experience</p>
+        </div>
+        <input class="rounded-[20px] border border-[#D9D9D9] px-[15px] py-[5px] focus:outline-none focus:ring-1 focus:ring-violet-400"
+               type="text"
+               name="experience"
+               id="" />
+      </div>
+      <input class="button cursor-pointer" type="submit" value="Continue" />
+    </form>
   </div>
 {% endblock %}

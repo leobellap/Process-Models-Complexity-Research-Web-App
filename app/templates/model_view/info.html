@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-          rel="stylesheet" />
-    <link rel="stylesheet" href="/static/styletw.css" />
-    <title>Опрос</title>
-  </head>
-  <body>
-    <h1>Succes!</h1>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+  <div class="flex h-dvh items-center justify-center">
+    <div class="flex flex-col gap-[30px] rounded-[20px] p-[40px] bg-white max-w-[900px] mx-auto">
+      <h1 class="text-[24px] font-bold">Process models evaluation</h1>
+      <div class="flex flex-col gap-[10px]">
+        <p class="text-[16px]">
+          The Process models in this survey describe various medical procedures (e.g.
+          Treatment of a patient etc). These models are often used in medical establishments
+          as guidelines & instructions. It is crucial to analyze how medical professionals can
+          understand these process models without oversimplifying or complexifying the
+          models.
+        </p>
+        <p class="text-[16px]">
+          We aim to study your responses & along with the measurement from metrics to
+          analyze how well, technical measures can represent the human Interpretability of
+          process models.
+        </p>
+        <p class="text-[16px]">
+          On next pages you will see several models. Please, look through them and choose the best one for each medical process.
+        </p>
+      </div>
+      <a hx-get="{{ url_for("model_internal_operations") }}"
+         hx-swap="transition:true">
+        <button class="button">Continue</button>
+      </a>
+    </div>
+  </div>
+{% endblock %}
