@@ -6,4 +6,15 @@
   .button {
     @apply w-fit rounded-[20px] border bg-[#E100FF] px-[25px] py-[10px] text-[18px] text-white hover:bg-[#CB00E5] focus:bg-[#9E00B2] focus:outline-none;
   }
+
+  .checkbox {
+    @apply size-[20px] cursor-pointer appearance-none rounded border border-slate-300 transition-all checked:border-blue-600 checked:bg-blue-600;
+  }
+  .checkbox-image {
+    @apply size-[15px];
+  }
+
+  .slider {
+    @apply h-[10px] cursor-pointer appearance-none rounded-[20px] bg-slate-200;
+  }
 }
