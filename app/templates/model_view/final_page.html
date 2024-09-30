@@ -2,7 +2,10 @@
 {% block content %}
     <div class="flex h-dvh items-center justify-center">
         <div class="flex flex-col gap-[30px] rounded-[20px] bg-white p-[40px] max-w-[900px]">
-            <h1 class="text-[24px] font-bold">Thank you for taking part in our research!</h1>
+            <div class="flex flex-col gap-[5px]">
+                <h1 class="text-[24px] font-bold">Thank you for taking part in our research!</h1>
+                <hr>
+            </div>
             <p class="text-[16px]">
                 Your answers will help us better understand the complexity of process
                 models in medicine and healthcare. We value your input and hope that the
@@ -10,14 +13,16 @@
                 information systems. If you have any other comments or suggestions, feel
                 free to share them with us. Thanks again! 😊
             </p>
-            <div role="comment-section" class="flex flex-col gap-[10px]">
-                <p class="text-[16px]">Any comments:</p>
-                <input class="text-[18px] border rounded-[20px] px-[15px] py-[5px] outline-none focus:ring-1 focus:ring-violet-400"
-                       type="text"
-                       name=""
-                       id="">
+            <div role="comment-section" class="flex flex-col gap-[30px]">
+                <div class="flex flex-col gap-[10px]">
+                    <p class="text-[16px]">Any comments:</p>
+                    <input class="text-[18px] border rounded-[20px] px-[15px] py-[5px] outline-none focus:ring-1 focus:ring-violet-400"
+                           type="text"
+                           name=""
+                           id="">
+                </div>
+                <button class="button">Finish</button>
             </div>
-            <button class="button">Finish</button>
         </div>
     </div>
 {% endblock %}

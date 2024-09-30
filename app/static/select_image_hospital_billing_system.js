@@ -7,7 +7,7 @@ let complexityLevelBilling = document.getElementById("complexityLevel");
 function updateImage() {
   const step = stepSliderBilling.value;
   const difficulty = difficultySliderBilling.value;
-  processImageBilling.src = `/static/images/model-${step}-${difficulty}.png`;
+  processImageBilling.src = `/static/images/models/model-${step}-${difficulty}.png`;
   stepNameBilling.textContent = step;
   complexityLevelBilling.textContent = difficulty;
 }

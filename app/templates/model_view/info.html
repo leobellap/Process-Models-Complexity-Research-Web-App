@@ -1,29 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="flex h-dvh items-center justify-center">
-    <div class="flex flex-col gap-[30px] rounded-[20px] p-[40px] bg-white max-w-[900px] mx-auto">
+  <div class="flex flex-col gap-[30px] rounded-[20px] p-[40px] bg-white max-w-[900px] mx-auto my-[54px]">
+    <div class="flex flex-col gap-[5px]">
       <h1 class="text-[24px] font-bold">Process models evaluation</h1>
-      <div class="flex flex-col gap-[10px]">
-        <p class="text-[16px]">
-          The Process models in this survey describe various medical procedures (e.g.
-          Treatment of a patient etc). These models are often used in medical establishments
-          as guidelines & instructions. It is crucial to analyze how medical professionals can
-          understand these process models without oversimplifying or complexifying the
-          models.
-        </p>
-        <p class="text-[16px]">
-          We aim to study your responses & along with the measurement from metrics to
-          analyze how well, technical measures can represent the human Interpretability of
-          process models.
-        </p>
-        <p class="text-[16px]">
-          On next pages you will see several models. Please, look through them and choose the best one for each medical process.
-        </p>
-      </div>
-      <a hx-get="{{ url_for("model_internal_operations") }}"
-         hx-swap="transition:true">
-        <button class="button">Continue</button>
-      </a>
+      <hr>
     </div>
+    <div class="flex flex-col gap-[10px]">
+      <p class="text-[16px]">
+        The process models in this survey describe various medical procedures (e.g.
+        treatment of a patient etc). These models are often used in medical establishments
+        as guidelines & instructions. It is crucial to analyze how medical professionals can
+        understand these process models without oversimplifying or complexifying the
+        models.
+      </p>
+      <p class="text-[16px]">The figure below describes process modelling. Where:</p>
+      <ol class="flex flex-col gap-[10px] text-[16px] list-decimal list-inside marker:font-bold">
+        <li>
+          <b>The Event Log</b> is a process represented in textual format with information such as Time, Date, Activity Occurring & Unique ID.
+        </li>
+        <li>
+          <b>Process Mining</b> is the methodology of transforming an Event log by Mining it with an Algorithm to create a Process Model.
+        </li>
+        <li>
+          <b>The Process Model</b> is a visual representation of the sequence of activities occurring in the event log.
+        </li>
+      </ol>
+      <img class="object-contain"
+           src="/static/images/process-model-example.png"
+           alt="">
+      <p class="text-[16px]">
+        On next pages you will see several process models. Please, look through them and choose the best one for each medical process.
+      </p>
+    </div>
+    <a hx-get="{{ url_for("model_internal_operations") }}"
+       hx-swap="transition:true">
+      <button class="button">Continue</button>
+    </a>
   </div>
 {% endblock %}

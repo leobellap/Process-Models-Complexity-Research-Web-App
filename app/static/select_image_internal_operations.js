@@ -7,7 +7,7 @@ let complexityLevelOperations = document.getElementById("complexityLevel");
 function updateImage() {
   const step = stepSliderOperations.value;
   const difficulty = difficultySliderOperations.value;
-  processImageOperations.src = `/static/images/model-${step}-${difficulty}.png`;
+  processImageOperations.src = `/static/images/models/model-${step}-${difficulty}.png`;
   stepNameOperations.textContent = step;
   complexityLevelOperations.textContent = difficulty;
 }

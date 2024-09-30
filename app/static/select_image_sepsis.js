@@ -7,7 +7,7 @@ let complexityLevelSepsis = document.getElementById("complexityLevel");
 function updateImage() {
   let step = stepSliderSepsis.value;
   let difficulty = difficultySliderSepsis.value;
-  processImageSepsis.src = `/static/images/model-${step}-${difficulty}.png`;
+  processImageSepsis.src = `/static/images/models/model-${step}-${difficulty}.png`;
   stepNameSepsis.textContent = step;
   complexityLevelSepsis.textContent = difficulty;
 }
