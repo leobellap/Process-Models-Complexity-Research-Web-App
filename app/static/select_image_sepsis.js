@@ -13,7 +13,7 @@ function preloadImages() {
       difficulty <= prSliderSepsis.max;
       difficulty++
     ) {
-      let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
+      let src = `/static/images/models/Dataset_7/Dataset-7_AR-${step}0_PR-(0-100)/Dataset-7_AR-${step}0_PR-${difficulty}0.dot.png`;
       if (!imageCacheSepsis[src]) {
         let img = new Image();
         img.src = src;
@@ -26,7 +26,7 @@ function preloadImages() {
 function updateImage() {
   let step = arSliderSepsis.value;
   let difficulty = prSliderSepsis.value;
-  let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
+  let src = `/static/images/models/Dataset_7/Dataset-7_AR-${step}0_PR-(0-100)/Dataset-7_AR-${step}0_PR-${difficulty}0.dot.png`;
 
   if (imageCacheSepsis[src]) {
     processImageSepsis.src = src;

@@ -13,7 +13,7 @@ function preloadImages() {
       difficulty <= prSliderIntOp.max;
       difficulty++
     ) {
-      let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
+      let src = `/static/images/models/Dataset_1/Dataset-1_AR-${step}0_PR-(0-100)/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
       if (!imageCacheIntOp[src]) {
         let img = new Image();
         img.src = src;
@@ -26,7 +26,7 @@ function preloadImages() {
 function updateImage() {
   let step = arSliderIntOp.value;
   let difficulty = prSliderIntOp.value;
-  let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
+  let src = `/static/images/models/Dataset_1/Dataset-1_AR-${step}0_PR-(0-100)/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
 
   if (imageCacheIntOp[src]) {
     processImageIntOp.src = src;
