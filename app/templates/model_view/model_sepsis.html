@@ -30,24 +30,19 @@
           <p>1. Step complexity: complexity of the step.</p>
           <p>2. Process step: current step of the process.</p>
         </div>
-        <div role="sliderC" class="flex flex-col gap-[15px]">
-          <p class="text-[16px]">Step complexity:</p>
-          <input type="range"
-                 class="slider"
-                 min="1"
-                 max="4"
-                 value="1"
-                 id="complexitySlider" />
+        <div role="sliderPR" class="flex flex-col gap-[15px]">
+          <p class="text-[16px]">Path rate:</p>
+          <input type="range" class="slider" min="1" max="10" value="1" id="prSlider" />
         </div>
-        <div role="sliderP" class="flex flex-col gap-[15px]">
-          <p class="text-[16px]">Process step:</p>
+        <div role="sliderAR" class="flex flex-col gap-[15px]">
+          <p class="text-[16px]">Acting rate:</p>
           <input type="range"
                  class="slider"
                  min="1"
-                 max="4"
+                 max="10"
                  value="1"
                  name=""
-                 id="stepSlider" />
+                 id="arSlider" />
         </div>
       </div>
       <div role="image-panel"
@@ -55,19 +50,19 @@
         <div class="flex flex-col gap-[5px]">
           <div class="flex gap-[10px] text-[18px]">
             <div class="flex gap-[5px]">
-              <p class="font-bold">Step:</p>
-              <p id="stepName"></p>
+              <p class="font-bold">Acting rate:</p>
+              <p id="arText"></p>
             </div>
             <div class="flex gap-[5px]">
-              <p class="font-bold">Complexity:</p>
-              <p id="complexityLevel"></p>
+              <p class="font-bold">Path rate:</p>
+              <p id="prText"></p>
             </div>
           </div>
           <hr />
         </div>
         <img class="h-[682px] w-[900px] object-contain"
              id="processImage"
-             src="/static/images/models/model-1-1.png"
+             src=""
              alt="" />
       </div>
       <div role="best-model-selection" class="rounded-[20px] bg-white p-[20px]">
@@ -84,20 +79,32 @@
               </div>
               <div class="flex flex-col gap-[20px]">
                 <select class="rounded-[20px] border px-[10px] py-[5px] text-[16px] outline-none focus:ring-1 focus:ring-violet-400"
-                        name="best-step"
-                        id="best-step">
-                  <option value="1">Step 1</option>
-                  <option value="2">Step 2</option>
-                  <option value="3">Step 3</option>
-                  <option value="4">Step 4</option>
+                        name="best-ar"
+                        id="best-ar">
+                  <option value="1">Acting rate 1</option>
+                  <option value="2">Acting rate 2</option>
+                  <option value="3">Acting rate 3</option>
+                  <option value="4">Acting rate 4</option>
+                  <option value="5">Acting rate 5</option>
+                  <option value="6">Acting rate 6</option>
+                  <option value="7">Acting rate 7</option>
+                  <option value="8">Acting rate 8</option>
+                  <option value="9">Acting rate 9</option>
+                  <option value="10">Acting rate 10</option>
                 </select>
                 <select class="rounded-[20px] border px-[10px] py-[5px] text-[16px] outline-none focus:ring-1 focus:ring-violet-400"
-                        name="best-complexity"
-                        id="best-complexity">
-                  <option value="1">Complexity 1</option>
-                  <option value="2">Complexity 2</option>
-                  <option value="3">Complexity 3</option>
-                  <option value="4">Complexity 4</option>
+                        name="best-pr"
+                        id="best-pr">
+                  <option value="1">Path rate 1</option>
+                  <option value="2">Path rate 2</option>
+                  <option value="3">Path rate 3</option>
+                  <option value="4">Path rate 4</option>
+                  <option value="5">Path rate 5</option>
+                  <option value="6">Path rate 6</option>
+                  <option value="7">Path rate 7</option>
+                  <option value="8">Path rate 8</option>
+                  <option value="9">Path rate 9</option>
+                  <option value="10">Path rate 10</option>
                 </select>
               </div>
             </div>

@@ -1,19 +1,51 @@
-let stepSliderSepsis = document.getElementById("stepSlider");
-let difficultySliderSepsis = document.getElementById("complexitySlider");
+let arSliderSepsis = document.getElementById("arSlider");
+let prSliderSepsis = document.getElementById("prSlider");
 let processImageSepsis = document.getElementById("processImage");
-let stepNameSepsis = document.getElementById("stepName");
-let complexityLevelSepsis = document.getElementById("complexityLevel");
+let arTextSepsis = document.getElementById("arText");
+let prTextSepsis = document.getElementById("prText");
 
-function updateImage() {
-  let step = stepSliderSepsis.value;
-  let difficulty = difficultySliderSepsis.value;
-  processImageSepsis.src = `/static/images/models/model-${step}-${difficulty}.png`;
-  stepNameSepsis.textContent = step;
-  complexityLevelSepsis.textContent = difficulty;
+let imageCacheSepsis = {};
+
+function preloadImages() {
+  for (let step = arSliderSepsis.min; step <= arSliderSepsis.max; step++) {
+    for (
+      let difficulty = prSliderSepsis.min;
+      difficulty <= prSliderSepsis.max;
+      difficulty++
+    ) {
+      let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
+      if (!imageCacheSepsis[src]) {
+        let img = new Image();
+        img.src = src;
+        imageCacheSepsis[src] = img;
+      }
+    }
+  }
 }
 
-stepSliderSepsis.addEventListener("input", updateImage);
-difficultySliderSepsis.addEventListener("input", updateImage);
+function updateImage() {
+  let step = arSliderSepsis.value;
+  let difficulty = prSliderSepsis.value;
+  let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
 
-// Initial image update
+  if (imageCacheSepsis[src]) {
+    processImageSepsis.src = src;
+  } else {
+    let img = new Image();
+    img.onload = () => {
+      processImageSepsis.src = src;
+    };
+    img.src = src;
+    imageCacheSepsis[src] = img;
+  }
+
+  arTextSepsis.textContent = step;
+  prTextSepsis.textContent = difficulty;
+}
+
+arSliderSepsis.addEventListener("input", updateImage);
+prSliderSepsis.addEventListener("input", updateImage);
+
+// Preload images and then update the initial image
+preloadImages();
 updateImage();

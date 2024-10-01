@@ -1,19 +1,51 @@
-let stepSliderBilling = document.getElementById("stepSlider");
-let difficultySliderBilling = document.getElementById("complexitySlider");
+let arSliderBilling = document.getElementById("arSlider");
+let prSliderBilling = document.getElementById("prSlider");
 let processImageBilling = document.getElementById("processImage");
-let stepNameBilling = document.getElementById("stepName");
-let complexityLevelBilling = document.getElementById("complexityLevel");
+let arTextBilling = document.getElementById("arText");
+let prTextBilling = document.getElementById("prText");
 
-function updateImage() {
-  const step = stepSliderBilling.value;
-  const difficulty = difficultySliderBilling.value;
-  processImageBilling.src = `/static/images/models/model-${step}-${difficulty}.png`;
-  stepNameBilling.textContent = step;
-  complexityLevelBilling.textContent = difficulty;
+let imageCacheBilling = {};
+
+function preloadImages() {
+  for (let step = arSliderBilling.min; step <= arSliderBilling.max; step++) {
+    for (
+      let difficulty = prSliderBilling.min;
+      difficulty <= prSliderBilling.max;
+      difficulty++
+    ) {
+      let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
+      if (!imageCacheBilling[src]) {
+        let img = new Image();
+        img.src = src;
+        imageCacheBilling[src] = img;
+      }
+    }
+  }
 }
 
-stepSliderBilling.addEventListener("input", updateImage);
-difficultySliderBilling.addEventListener("input", updateImage);
+function updateImage() {
+  let step = arSliderBilling.value;
+  let difficulty = prSliderBilling.value;
+  let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
 
-// Initial image update
+  if (imageCacheBilling[src]) {
+    processImageBilling.src = src;
+  } else {
+    let img = new Image();
+    img.onload = () => {
+      processImageBilling.src = src;
+    };
+    img.src = src;
+    imageCacheBilling[src] = img;
+  }
+
+  arTextBilling.textContent = step;
+  prTextBilling.textContent = difficulty;
+}
+
+arSliderBilling.addEventListener("input", updateImage);
+prSliderBilling.addEventListener("input", updateImage);
+
+// Preload images and then update the initial image
+preloadImages();
 updateImage();

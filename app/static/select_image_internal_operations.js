@@ -1,19 +1,51 @@
-let stepSliderOperations = document.getElementById("stepSlider");
-let difficultySliderOperations = document.getElementById("complexitySlider");
-let processImageOperations = document.getElementById("processImage");
-let stepNameOperations = document.getElementById("stepName");
-let complexityLevelOperations = document.getElementById("complexityLevel");
+let arSliderIntOp = document.getElementById("arSlider");
+let prSliderIntOp = document.getElementById("prSlider");
+let processImageIntOp = document.getElementById("processImage");
+let arTextIntOp = document.getElementById("arText");
+let prTextIntOp = document.getElementById("prText");
 
-function updateImage() {
-  const step = stepSliderOperations.value;
-  const difficulty = difficultySliderOperations.value;
-  processImageOperations.src = `/static/images/models/model-${step}-${difficulty}.png`;
-  stepNameOperations.textContent = step;
-  complexityLevelOperations.textContent = difficulty;
+let imageCacheIntOp = {};
+
+function preloadImages() {
+  for (let step = arSliderIntOp.min; step <= arSliderIntOp.max; step++) {
+    for (
+      let difficulty = prSliderIntOp.min;
+      difficulty <= prSliderIntOp.max;
+      difficulty++
+    ) {
+      let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
+      if (!imageCacheIntOp[src]) {
+        let img = new Image();
+        img.src = src;
+        imageCacheIntOp[src] = img;
+      }
+    }
+  }
 }
 
-stepSliderOperations.addEventListener("input", updateImage);
-difficultySliderOperations.addEventListener("input", updateImage);
+function updateImage() {
+  let step = arSliderIntOp.value;
+  let difficulty = prSliderIntOp.value;
+  let src = `/static/images/models/Dataset-1_AR-${step}/Dataset-1_AR-${step}0_PR-${difficulty}0.dot.png`;
 
-// Initial image update
+  if (imageCacheIntOp[src]) {
+    processImageIntOp.src = src;
+  } else {
+    let img = new Image();
+    img.onload = () => {
+      processImageIntOp.src = src;
+    };
+    img.src = src;
+    imageCacheIntOp[src] = img;
+  }
+
+  arTextIntOp.textContent = step;
+  prTextIntOp.textContent = difficulty;
+}
+
+arSliderIntOp.addEventListener("input", updateImage);
+prSliderIntOp.addEventListener("input", updateImage);
+
+// Preload images and then update the initial image
+preloadImages();
 updateImage();
