@@ -1,11 +1,11 @@
 # Shell scripts
-app/*.sh
+*.sh
 
 # txt docs
 app/*.txt
 
 # credentials
-# config.ini
+app/config.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

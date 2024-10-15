@@ -75,3 +75,7 @@ def sepsis_results():
 @app.route("/final_page")
 def final_page():
     return render_template("model_view/final_page.html")
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
