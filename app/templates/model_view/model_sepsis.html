@@ -25,24 +25,61 @@
           <hr />
         </div>
         <div role="controls-description"
-             class="flex flex-col gap-[5px] text-[14px]">
+             class="flex max-w-[299px] flex-col gap-[5px] text-[14px]">
           <p>Use sliders to select process models:</p>
-          <p>1. Step complexity: complexity of the step.</p>
-          <p>2. Process step: current step of the process.</p>
+          <p>
+            1. Path rate: controls the amount of pathways
+            <br>
+            connecting relative events.
+          </p>
+          <p>2. Acting rate: controls the amount of events shown.</p>
         </div>
-        <div role="sliderPR" class="flex flex-col gap-[15px]">
+        <div role="sliderPR" class="flex flex-col gap-[5px]">
           <p class="text-[16px]">Path rate:</p>
-          <input type="range" class="slider" min="1" max="10" value="1" id="prSlider" />
+          <div>
+            <input type="range"
+                   class="slider w-full"
+                   min="1"
+                   max="10"
+                   value="1"
+                   id="prSlider" />
+            <div class="flex justify-between px-[8px] w-full">
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+            </div>
+          </div>
         </div>
-        <div role="sliderAR" class="flex flex-col gap-[15px]">
+        <div role="sliderAR" class="flex flex-col gap-[5px]">
           <p class="text-[16px]">Acting rate:</p>
-          <input type="range"
-                 class="slider"
-                 min="1"
-                 max="10"
-                 value="1"
-                 name=""
-                 id="arSlider" />
+          <div>
+            <input type="range"
+                   class="slider w-full"
+                   min="1"
+                   max="10"
+                   value="1"
+                   name=""
+                   id="arSlider" />
+            <div class="flex justify-between px-[8px] w-full">
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+              <span class="text-[4px]">|</span>
+            </div>
+          </div>
         </div>
       </div>
       <div role="image-panel"
@@ -78,7 +115,7 @@
                 <hr />
               </div>
               <div class="flex flex-col gap-[20px]">
-                <select class="rounded-[20px] border px-[10px] py-[5px] text-[16px] outline-none focus:ring-1 focus:ring-violet-400"
+                <select class="rounded-[20px] border px-[10px] py-[5px] text-[14px] outline-none focus:ring-1 focus:ring-violet-400"
                         name="best-ar"
                         id="best-ar">
                   <option value="1">Acting rate 1</option>
@@ -92,7 +129,7 @@
                   <option value="9">Acting rate 9</option>
                   <option value="10">Acting rate 10</option>
                 </select>
-                <select class="rounded-[20px] border px-[10px] py-[5px] text-[16px] outline-none focus:ring-1 focus:ring-violet-400"
+                <select class="rounded-[20px] border px-[10px] py-[5px] text-[14px] outline-none focus:ring-1 focus:ring-violet-400"
                         name="best-pr"
                         id="best-pr">
                   <option value="1">Path rate 1</option>
@@ -114,7 +151,7 @@
                 <hr />
               </div>
               <div class="flex justify-between items-center">
-                <p class="text-[16px]">
+                <p class="text-[14px]">
                   Understandability,
                   <br>
                   readability
@@ -137,7 +174,7 @@
                 </div>
               </div>
               <div class="flex justify-between items-center">
-                <p class="text-[16px]">
+                <p class="text-[14px]">
                   Correctness,
                   <br>
                   complete description
@@ -160,7 +197,7 @@
                 </div>
               </div>
               <div class="flex justify-between items-center">
-                <p class="text-[16px]">
+                <p class="text-[14px]">
                   Usefulness,
                   <br>
                   insightfulness
