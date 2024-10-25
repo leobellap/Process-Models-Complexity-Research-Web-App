@@ -121,7 +121,7 @@
               </div>
               <div class="flex flex-col gap-[20px]">
                 <select class="rounded-[20px] border px-[10px] py-[5px] text-[14px] outline-none focus:ring-1 focus:ring-violet-400"
-                        name="best-ar"
+                        name="acting_rate"
                         id="best-ar">
                   <option value="1">Acting rate 1</option>
                   <option value="2">Acting rate 2</option>
@@ -135,7 +135,7 @@
                   <option value="10">Acting rate 10</option>
                 </select>
                 <select class="rounded-[20px] border px-[10px] py-[5px] text-[14px] outline-none focus:ring-1 focus:ring-violet-400"
-                        name="best-pr"
+                        name="path_rate"
                         id="best-pr">
                   <option value="1">Path rate 1</option>
                   <option value="2">Path rate 2</option>
@@ -163,7 +163,11 @@
                 </p>
                 <div role="checkbox" class="inline-flex items-center">
                   <label class="flex items-center cursor-pointer relative">
-                    <input type="checkbox" class="peer checkbox" />
+                    <input type="checkbox"
+                           name="understandability"
+                           value="TRUE"
+                           class="peer checkbox" />
+                    <input type="hidden"   name="understandability" value="FALSE" />
                     <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <svg xmlns="http://www.w3.org/2000/svg"
                            class="checkbox-image"
@@ -186,7 +190,8 @@
                 </p>
                 <div role="checkbox" class="inline-flex items-center">
                   <label class="flex items-center cursor-pointer relative">
-                    <input type="checkbox" class="peer checkbox" />
+                    <input type="checkbox" name="correctness" value="TRUE" class="peer checkbox" />
+                    <input type="hidden"   name="correctness" value="FALSE" />
                     <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <svg xmlns="http://www.w3.org/2000/svg"
                            class="checkbox-image"
@@ -209,7 +214,8 @@
                 </p>
                 <div role="checkbox" class="inline-flex items-center">
                   <label class="flex items-center cursor-pointer relative">
-                    <input type="checkbox" class="peer checkbox" />
+                    <input type="checkbox" name="usefulness" value="TRUE" class="peer checkbox" />
+                    <input type="hidden"   name="usefulness" value="FALSE" />
                     <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <svg xmlns="http://www.w3.org/2000/svg"
                            class="checkbox-image"

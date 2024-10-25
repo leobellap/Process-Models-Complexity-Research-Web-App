@@ -1,5 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
-from database import save_user_data
+from database import (
+    save_user_data,
+    save_internal_op,
+    save_billing,
+    save_remote,
+    save_sepsis,
+)
 
 app = Flask(__name__)
 
@@ -24,7 +30,7 @@ def form():
 @app.route("/save_form", methods=["post"])
 def save_form():
     data = request.form
-    # save_user_data(data)
+    save_user_data(data)
     return render_template("model_view/info.html")
 
 
@@ -51,24 +57,28 @@ def model_sepsis():
 @app.route("/internal_operations_results", methods=["post"])
 def internal_operations_results():
     data = request.form
+    save_internal_op(data)
     return redirect(url_for("model_hospital_billing_system"))
 
 
 @app.route("/hospital_billing_system_results", methods=["post"])
 def hospital_billing_system_results():
     data = request.form
+    save_billing(data)
     return redirect(url_for("model_remote_patient_monitoring"))
 
 
 @app.route("/remote_patient_monitoring_results", methods=["post"])
 def remote_patient_monitoring_results():
     data = request.form
+    save_remote(data)
     return redirect(url_for("model_sepsis"))
 
 
 @app.route("/sepsis_results", methods=["post"])
 def sepsis_results():
     data = request.form
+    save_sepsis(data)
     return redirect(url_for("final_page"))
 
 
