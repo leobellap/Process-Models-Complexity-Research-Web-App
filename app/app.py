@@ -20,59 +20,44 @@ def form():
     return render_template("form/form.html")
 
 
-# @app.route("/save_form", methods=["post"])
-# def save_form():
-#     data = request.form
-#     save_user_data(data)
-#     return render_template("model_view/model_sepsis.html", user_data=data)
-
-
 @app.route("/save_form", methods=["post"])
 def save_form():
     data = request.form
-    save_user_data(data)
-    return render_template("model_view/info.html")
+    user_id = save_user_data(data)
+    return render_template("model_view/info.html", user_id=user_id)
 
 
-@app.route("/model_internal_operations")
+@app.route("/model_internal_operations", methods=["post"])
 def model_internal_operations():
-    return render_template("model_view/model_internal_operations.html")
-
-
-@app.route("/model_hospital_billing_system")
-def model_hospital_billing_system():
-    return render_template("model_view/model_hospital_billing_system.html")
-
-
-@app.route("/model_remote_patient_monitoring")
-def model_remote_patient_monitoring():
-    return render_template("model_view/model_remote_patient_monitoring.html")
-
-
-@app.route("/model_sepsis")
-def model_sepsis():
-    return render_template("model_view/model_sepsis.html")
+    return render_template(
+        "model_view/model_internal_operations.html", user_id=request.form["user_id"]
+    )
 
 
 @app.route("/internal_operations_results", methods=["post"])
 def internal_operations_results():
     data = request.form
     save_internal_op(data)
-    return redirect(url_for("model_hospital_billing_system"))
+    return render_template(
+        "model_view/model_hospital_billing_system.html", user_id=data["user_id"]
+    )
 
 
 @app.route("/hospital_billing_system_results", methods=["post"])
 def hospital_billing_system_results():
     data = request.form
     save_billing(data)
-    return redirect(url_for("model_remote_patient_monitoring"))
+    return render_template(
+        "model_view/model_remote_patient_monitoring.html",
+        user_id=data["user_id"],
+    )
 
 
 @app.route("/remote_patient_monitoring_results", methods=["post"])
 def remote_patient_monitoring_results():
     data = request.form
     save_remote(data)
-    return redirect(url_for("model_sepsis"))
+    return render_template("model_view/model_sepsis.html", user_id=data["user_id"])
 
 
 @app.route("/sepsis_results", methods=["post"])

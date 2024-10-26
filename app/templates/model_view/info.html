@@ -32,9 +32,10 @@
         On next pages you will see several process models. Please, look through them and choose the best one for each medical process.
       </p>
     </div>
-    <a hx-get="{{ url_for("model_internal_operations") }}"
-       hx-swap="transition:true">
-      <button class="button">Continue</button>
-    </a>
+    <form hx-post="{{ url_for("model_internal_operations") }}"
+          hx-swap="transition:true">
+      <input type="hidden" name="user_id" value="{{ user_id }}">
+      <button type="submit" class="button">Continue</button>
+    </form>
   </div>
 {% endblock %}

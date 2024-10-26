@@ -11,9 +11,9 @@ engine = create_engine(conn_string)
 def save_user_data(user_data):
     with engine.connect() as conn:
         query = text(
-            "insert into users_data (age, gender, education, specialization, current_employer, current_position, experience, email) values (:age, :gender, :education, :specialization, :current_employer, :current_position, :experience, :email)"
+            "insert into users_data (age, gender, education, specialization, current_employer, current_position, experience, email) values (:age, :gender, :education, :specialization, :current_employer, :current_position, :experience, :email) RETURNING user_id"
         )
-        conn.execute(
+        result = conn.execute(
             query,
             [
                 {
@@ -28,19 +28,22 @@ def save_user_data(user_data):
                 }
             ],
         )
+        user_id = result.fetchone()[0]
         conn.commit()
+    return user_id
 
 
 def save_internal_op(user_data):
     with engine.connect() as conn:
         query = text(
-            "INSERT INTO internal_op (acting_rate, path_rate, understandability, correctness, usefulness) "
-            "VALUES (:acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
+            "INSERT INTO internal_op (user_id, acting_rate, path_rate, understandability, correctness, usefulness) "
+            "VALUES (:user_id, :acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
         )
         conn.execute(
             query,
             [
                 {
+                    "user_id": user_data["user_id"],
                     "acting_rate": user_data["acting_rate"],
                     "path_rate": user_data["path_rate"],
                     "understandability": user_data["understandability"],
@@ -55,13 +58,14 @@ def save_internal_op(user_data):
 def save_billing(user_data):
     with engine.connect() as conn:
         query = text(
-            "INSERT INTO billing (acting_rate, path_rate, understandability, correctness, usefulness) "
-            "VALUES (:acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
+            "INSERT INTO billing (user_id, acting_rate, path_rate, understandability, correctness, usefulness) "
+            "VALUES (:user_id, :acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
         )
         conn.execute(
             query,
             [
                 {
+                    "user_id": user_data["user_id"],
                     "acting_rate": user_data["acting_rate"],
                     "path_rate": user_data["path_rate"],
                     "understandability": user_data["understandability"],
@@ -76,13 +80,14 @@ def save_billing(user_data):
 def save_remote(user_data):
     with engine.connect() as conn:
         query = text(
-            "INSERT INTO remote (acting_rate, path_rate, understandability, correctness, usefulness) "
-            "VALUES (:acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
+            "INSERT INTO remote (user_id, acting_rate, path_rate, understandability, correctness, usefulness) "
+            "VALUES (:user_id, :acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
         )
         conn.execute(
             query,
             [
                 {
+                    "user_id": user_data["user_id"],
                     "acting_rate": user_data["acting_rate"],
                     "path_rate": user_data["path_rate"],
                     "understandability": user_data["understandability"],
@@ -97,13 +102,14 @@ def save_remote(user_data):
 def save_sepsis(user_data):
     with engine.connect() as conn:
         query = text(
-            "INSERT INTO sepsis (acting_rate, path_rate, understandability, correctness, usefulness) "
-            "VALUES (:acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
+            "INSERT INTO sepsis (user_id, acting_rate, path_rate, understandability, correctness, usefulness) "
+            "VALUES (:user_id, :acting_rate, :path_rate, :understandability, :correctness, :usefulness)"
         )
         conn.execute(
             query,
             [
                 {
+                    "user_id": user_data["user_id"],
                     "acting_rate": user_data["acting_rate"],
                     "path_rate": user_data["path_rate"],
                     "understandability": user_data["understandability"],
