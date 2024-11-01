@@ -9,6 +9,7 @@ services:
     image: nginx:latest
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certificates:/etc/ssl:ro
     depends_on:
       - flask
     ports:

@@ -6,6 +6,7 @@ app/*.txt
 
 # credentials
 app/config.ini
+certificates/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
