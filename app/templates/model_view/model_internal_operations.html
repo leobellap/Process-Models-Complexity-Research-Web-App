@@ -26,7 +26,7 @@
         </div>
         <div role="controls-description"
              class="flex max-w-[299px] flex-col gap-[5px] text-[14px]">
-          <p>Use sliders to select process models:</p>
+          <p>Use a panel below to select process models:</p>
           <p>
             1. Path rate: controls the amount of pathways
             <br>
@@ -34,52 +34,12 @@
           </p>
           <p>2. Acting rate: controls the amount of events shown.</p>
         </div>
-        <div role="sliderPR" class="flex flex-col gap-[5px]">
-          <p class="text-[16px]">Path rate:</p>
-          <div>
-            <input type="range"
-                   class="slider w-full"
-                   min="1"
-                   max="10"
-                   value="1"
-                   id="prSlider" />
-            <div class="flex justify-between px-[8px] w-full">
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-            </div>
-          </div>
-        </div>
-        <div role="sliderAR" class="flex flex-col gap-[5px]">
-          <p class="text-[16px]">Acting rate:</p>
-          <div>
-            <input type="range"
-                   class="slider w-full"
-                   min="1"
-                   max="10"
-                   value="1"
-                   name=""
-                   id="arSlider" />
-            <div class="flex justify-between px-[8px] w-full">
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-              <span class="text-[4px]">|</span>
-            </div>
-          </div>
+        <div id="slider"
+             class="w-[290px] h-[290px] border relative rounded-[20px] bg-gray-50">
+          <div id="handle"
+               class="w-[10%] h-[10%] cursor-pointer rounded-full absolute bg-blue-600 left-0 bottom-0 z-10"></div>
+          <div class="absolute left-[50%] bottom-0 translate-x-[-50%] text-[14px] text-gray-400">Acting rate</div>
+          <div class="absolute top-[50%] left-[-18px] translate-y-[-50%] -rotate-90 text-[14px] text-gray-400">Path rate</div>
         </div>
       </div>
       <div role="image-panel"
@@ -103,7 +63,8 @@
              alt="" />
       </div>
       <div role="best-model-selection" class="rounded-[20px] bg-white p-[20px]">
-        <form hx-post="{{ url_for("internal_operations_results") }}"
+        <form id="coordinatesForm"
+              hx-post="{{ url_for("internal_operations_results") }}"
               hx-swap="transition:true"
               class="flex h-full flex-col justify-between">
           <div class="flex flex-col gap-[30px]">
@@ -226,11 +187,11 @@
             </div>
           </div>
           <input type="hidden" name="user_id" value="{{ user_id }}">
+          <input type="hidden" name="coordinates" id="coordinatesInput" value="">
           <button type="submit" class="button">Confirm</button>
         </form>
       </div>
     </div>
   </div>
-  <script src="/static/select_image_internal_operations.js"></script>
-</div>
+  <script src="/static/2d_slider_internal_op.js"></script>
 {% endblock %}
