@@ -60,7 +60,7 @@ function onMouseMove(event) {
     var currentTime = new Date().toISOString();
 
     coordinates.push({ x, y, time: currentTime });
-    console.log(coordinates);
+    // console.log(coordinates);
 
     updateImage(x, y);
 
