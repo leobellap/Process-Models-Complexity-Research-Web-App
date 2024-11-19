@@ -633,6 +633,10 @@ video {
   bottom: 0px;
 }
 
+.bottom-\[calc\(50\%-13px\)\] {
+  bottom: calc(50% - 13px);
+}
+
 .left-1\/2 {
   left: 50%;
 }
@@ -645,32 +649,16 @@ video {
   left: 50%;
 }
 
+.left-\[calc\(50\%-13px\)\] {
+  left: calc(50% - 13px);
+}
+
 .top-1\/2 {
   top: 50%;
 }
 
 .top-\[50\%\] {
   top: 50%;
-}
-
-.bottom-\[50\%\] {
-  bottom: 50%;
-}
-
-.bottom-\[calc\(50\%-26px\)\] {
-  bottom: calc(50% - 26px);
-}
-
-.left-\[calc\(50\%-26px\)\] {
-  left: calc(50% - 26px);
-}
-
-.bottom-\[calc\(50\%-13px\)\] {
-  bottom: calc(50% - 13px);
-}
-
-.left-\[calc\(50\%-13px\)\] {
-  left: calc(50% - 13px);
 }
 
 .z-10 {
@@ -883,11 +871,6 @@ video {
   padding: 40px;
 }
 
-.px-\[10px\] {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 .px-\[15px\] {
   padding-left: 15px;
   padding-right: 15px;
@@ -949,11 +932,6 @@ video {
 
 .opacity-0 {
   opacity: 0;
-}
-
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
 }
 
 .transition {
@@ -1020,12 +998,6 @@ video {
   }
 
   .max-sm\:hidden {
-    display: none;
-  }
-}
-
-@media (min-width: 640px) {
-  .sm\:hidden {
     display: none;
   }
 }
