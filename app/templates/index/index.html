@@ -2,37 +2,38 @@
 {% block content %}
   <div hx-target="this">
     <div class="flex h-dvh items-center justify-center">
-      <div class="max-w-[900px] rounded-[20px] border border-none bg-white p-[40px]">
-        <div class="flex flex-col gap-[30px]">
+      <div class="max-w-[900px] rounded-[20px] border border-none bg-white p-[40px] max-sm:m-[20px]">
+        <div class="flex flex-col gap-[30px] max-sm:hidden">
           <div class="flex flex-col gap-[5px]">
             <h1 class="text-[24px] font-bold">Welcome! 😊</h1>
             <hr>
           </div>
           <div class="flex flex-col gap-[10px] text-[16px]">
             <p>
-              We invite medical and healthcare professionals to take part in our
-              survey. Our goals are:
+              We invite domain specialists to take part in our
+              survey. We aim to:
             </p>
             <ol class="list-decimal list-inside flex flex-col gap-[10px] marker:font-bold">
               <li>
-                To understand the human expert's point of view of the process
-                models (i.e. how does a domain expert interpret the model & its information).
+                Understand the human point of view of process models (i.e. how do people with varying
+                backgrounds perceive & interpret the model & its information).
               </li>
               <li>
-                To identify & implement the most ideal metrics to
-                measure the interpretability of process models (i.e. complexity &
-                understandability of models) from the technical point of view & compare it to the
-                expert human point of view.
+                To study & analyze the ideal metrics to measure the interpretability of process model (i.e. via
+                levels of model complexity & understandability).
               </li>
             </ol>
             <p>
-              Your contributions will help us make the practice of medicine more
+              Your contributions are greatly appreciated and will help us make the practice of medicine more
               efficient and accurate.
             </p>
           </div>
           <a href="form" hx-get="{{ url_for("form") }}" hx-swap="transition:true">
             <button class="button">Start the survey</button>
           </a>
+        </div>
+        <div class="max-sm:block hidden">
+          <p>This survey does not support mobile devices. Please, use a desktop version.</p>
         </div>
       </div>
     </div>

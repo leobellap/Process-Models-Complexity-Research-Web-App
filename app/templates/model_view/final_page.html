@@ -1,29 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="flex h-dvh items-center justify-center">
-        <div class="flex flex-col gap-[30px] rounded-[20px] bg-white p-[40px] max-w-[900px]">
+        <div class="flex max-w-[900px] flex-col gap-[30px] rounded-[20px] bg-white p-[40px]">
             <div class="flex flex-col gap-[5px]">
                 <h1 class="text-[24px] font-bold">Thank you for taking part in our research!</h1>
-                <hr>
+                <hr />
             </div>
             <p class="text-[16px]">
-                Your answers will help us better understand the complexity of process
-                models in medicine and healthcare. We value your input and hope that the
-                survey results will help improve clinical decision support and health
-                information systems. If you have any other comments or suggestions, feel
-                free to share them with us. Thanks again! 😊
+                Your answers will greatly help us to understand the interpretation of
+                process model complexity by domain users. We value your input and aim to
+                use the survey results to improve clinical decision support and health
+                information systems. 😊
             </p>
-            <ul class="text-[16px] list-disc list-inside marker:text-[#E100FF]">
-                <li>Email: ireddy@itmo.ru, kovalchuk@itmo.ru</li>
-                <li>Telegram: @ashishireddy, @iterater</li>
+            <ul class="list-inside list-disc text-[16px] marker:text-[#E100FF]">
+                <li>
+                    Email:
+                    <a href="mailto:ireddy@itmo.ru"
+                       target="_blank"
+                       class="text-blue-500 transition hover:text-blue-700 active:text-orange-500">ireddy@itmo.ru</a>,
+                    <a href="mailto:kovalchuk@itmo.ru"
+                       target="_blank"
+                       class="text-blue-500 transition hover:text-blue-700 active:text-orange-500">kovalchuk@itmo.ru</a>
+                </li>
+                <li>
+                    Telegram:
+                    <a href="https://t.me/ashishireddy"
+                       target="_blank"
+                       class="text-blue-500 transition hover:text-blue-700 active:text-orange-500">@ashishireddy</a>,
+                    <a href="https://t.me/iterater"
+                       target="_blank"
+                       class="text-blue-500 transition hover:text-blue-700 active:text-orange-500">@iterater</a>
+                </li>
             </ul>
-            <!-- <div role="comment-section" class="flex flex-col gap-[30px]">
-                <div class="flex flex-col gap-[10px]">
-                    <p class="text-[16px]">Any comments:</p>
-                    <input class="text-[18px] border rounded-[20px] px-[15px] py-[5px] outline-none focus:ring-1 focus:ring-violet-400" type="text" name="" id="">
-                </div>
-                <button class="button">Finish</button>
-            </div> -->
         </div>
     </div>
 {% endblock %}

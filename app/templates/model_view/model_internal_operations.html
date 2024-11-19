@@ -5,19 +5,19 @@
       <div role="control-panel"
            class="flex flex-col gap-[30px] rounded-[20px] bg-white p-[20px]">
         <div role="about" class="flex flex-col gap-[5px]">
-          <p class="text-[18px] font-bold">1. Internal operations</p>
+          <p class="text-[18px] font-bold">1. Internal Operations of a Hospital</p>
           <hr />
         </div>
         <div role="about-text"
              class="flex max-w-[299px] flex-col gap-[5px] text-[14px]">
           <p>
             This dataset describes the organizational structure of events
-            occurring in a health care facility (eg, registration, laboratory
+            occurring in a health care facility (e.g., registration, laboratory
             testing, consultation, etc.).
           </p>
           <p>
-            From these data, models are created that describe the sequence of
-            procedures for all departments of the medical institution.
+            Models generated from this dataset describe sequences of procedures for departments within a
+            medical institution.
           </p>
         </div>
         <div role="control-panel" class="flex flex-col gap-[5px]">
@@ -28,18 +28,19 @@
              class="flex max-w-[299px] flex-col gap-[5px] text-[14px]">
           <p>Use a panel below to select process models:</p>
           <p>
-            1. Path rate: controls the amount of pathways
+            1. Path Rate: controls the amount of pathways
             <br>
             connecting relative events.
           </p>
-          <p>2. Acting rate: controls the amount of events shown.</p>
+          <p>2. Event Rate: controls the amount of events shown.</p>
         </div>
         <div id="slider"
              class="w-[290px] h-[290px] border relative rounded-[20px] bg-gray-50">
           <div id="handle"
-               class="w-[10%] h-[10%] cursor-pointer rounded-full absolute bg-blue-600 left-0 bottom-0 z-10"></div>
-          <div class="absolute left-[50%] bottom-0 translate-x-[-50%] text-[14px] text-gray-400">Acting rate</div>
-          <div class="absolute top-[50%] left-[-18px] translate-y-[-50%] -rotate-90 text-[14px] text-gray-400">Path rate</div>
+               class="w-[26px] h-[26px] cursor-pointer rounded-full absolute bg-blue-600 left-[calc(50%-13px)] bottom-[calc(50%-13px)] z-10">
+          </div>
+          <div class="absolute left-[50%] bottom-0 translate-x-[-50%] text-[14px] text-gray-400">Event Rate</div>
+          <div class="absolute top-[50%] left-[-18px] translate-y-[-50%] -rotate-90 text-[14px] text-gray-400">Path Rate</div>
         </div>
       </div>
       <div role="image-panel"
@@ -47,11 +48,11 @@
         <div class="flex flex-col gap-[5px]">
           <div class="flex gap-[10px] text-[18px]">
             <div class="flex gap-[5px]">
-              <p class="font-bold">Acting rate:</p>
+              <p class="font-bold">Event Rate:</p>
               <p id="arText"></p>
             </div>
             <div class="flex gap-[5px]">
-              <p class="font-bold">Path rate:</p>
+              <p class="font-bold">Path Rate:</p>
               <p id="prText"></p>
             </div>
           </div>
@@ -68,52 +69,16 @@
               hx-swap="transition:true"
               class="flex h-full flex-col justify-between">
           <div class="flex flex-col gap-[30px]">
-            <div role="select-the-best-model" class="flex flex-col gap-[30px]">
-              <div class="flex flex-col gap-[5px]">
-                <p class="text-[18px] font-bold">Select the best model</p>
-                <hr />
-              </div>
-              <div class="flex flex-col gap-[20px]">
-                <select class="rounded-[20px] border px-[10px] py-[5px] text-[14px] outline-none focus:ring-1 focus:ring-violet-400"
-                        name="acting_rate"
-                        id="best-ar">
-                  <option value="1">Acting rate 1</option>
-                  <option value="2">Acting rate 2</option>
-                  <option value="3">Acting rate 3</option>
-                  <option value="4">Acting rate 4</option>
-                  <option value="5">Acting rate 5</option>
-                  <option value="6">Acting rate 6</option>
-                  <option value="7">Acting rate 7</option>
-                  <option value="8">Acting rate 8</option>
-                  <option value="9">Acting rate 9</option>
-                  <option value="10">Acting rate 10</option>
-                </select>
-                <select class="rounded-[20px] border px-[10px] py-[5px] text-[14px] outline-none focus:ring-1 focus:ring-violet-400"
-                        name="path_rate"
-                        id="best-pr">
-                  <option value="1">Path rate 1</option>
-                  <option value="2">Path rate 2</option>
-                  <option value="3">Path rate 3</option>
-                  <option value="4">Path rate 4</option>
-                  <option value="5">Path rate 5</option>
-                  <option value="6">Path rate 6</option>
-                  <option value="7">Path rate 7</option>
-                  <option value="8">Path rate 8</option>
-                  <option value="9">Path rate 9</option>
-                  <option value="10">Path rate 10</option>
-                </select>
-              </div>
-            </div>
             <div role="why-it-it-the-best-model" class="flex flex-col gap-[20px]">
               <div class="flex flex-col gap-[5px]">
-                <p class="text-[18px] font-bold">Why is it the best model?</p>
+                <p class="text-[18px] font-bold">Would you say the model is:</p>
                 <hr />
               </div>
               <div class="flex justify-between items-center">
                 <p class="text-[14px]">
-                  Understandability,
+                  Understandable,
                   <br>
-                  readability
+                  Readable
                 </p>
                 <div role="checkbox" class="inline-flex items-center">
                   <label class="flex items-center cursor-pointer relative">
@@ -138,9 +103,9 @@
               </div>
               <div class="flex justify-between items-center">
                 <p class="text-[14px]">
-                  Correctness,
+                  Correct,
                   <br>
-                  complete description
+                  Accurate Procedure
                 </p>
                 <div role="checkbox" class="inline-flex items-center">
                   <label class="flex items-center cursor-pointer relative">
@@ -162,9 +127,9 @@
               </div>
               <div class="flex justify-between items-center">
                 <p class="text-[14px]">
-                  Usefulness,
+                  Useful,
                   <br>
-                  insightfulness
+                  Fit for domain use
                 </p>
                 <div role="checkbox" class="inline-flex items-center">
                   <label class="flex items-center cursor-pointer relative">
@@ -188,6 +153,8 @@
           </div>
           <input type="hidden" name="user_id" value="{{ user_id }}">
           <input type="hidden" name="coordinates" id="coordinatesInput" value="">
+          <input type="hidden" name="event_rate" id="event_rate" value="">
+          <input type="hidden" name="path_rate" id="path_rate" value="">
           <button type="submit" class="button">Confirm</button>
         </form>
       </div>

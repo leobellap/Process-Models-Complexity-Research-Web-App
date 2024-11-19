@@ -2,16 +2,15 @@
 {% block content %}
   <div class="flex flex-col gap-[30px] rounded-[20px] p-[40px] bg-white max-w-[900px] mx-auto my-[20px]">
     <div class="flex flex-col gap-[5px]">
-      <h1 class="text-[24px] font-bold">Process models evaluation</h1>
+      <h1 class="text-[24px] font-bold">Process model evaluation</h1>
       <hr>
     </div>
     <div class="flex flex-col gap-[10px]">
       <p class="text-[16px]">
-        The process models in this survey describe various medical procedures (e.g.
-        treatment of a patient etc). These models are often used in medical establishments
-        as guidelines & instructions. It is crucial to analyze how medical professionals can
-        understand these process models without oversimplifying or complexifying the
-        models.
+        The process models in this survey describe various medical procedures (patient treatment pipeline, hospital operations, etc.). These models are often used in medical establishments
+        as frameworks for treatment & healthcare guidelines. By analysing how human experts understand and
+        interpret these process models, we aim to extract the level of complexity at which the model is
+        considered balanced (i.e. neither oversimplified nor extremely complex).
       </p>
       <p class="text-[16px]">The figure below describes process modelling. Where:</p>
       <ol class="flex flex-col gap-[10px] text-[16px] list-decimal list-inside marker:font-bold">
@@ -29,8 +28,10 @@
            src="/static/images/process-model-example.png"
            alt="">
       <p class="text-[16px]">
-        On next pages you will see several process models. Please, look through them and choose the best one for each medical process.
+        In the following pages, we showcase various process models with varying degrees of information.
+        Please read through them and select the most suitable option for the questions below.
       </p>
+      <p class="font-bold">Do not refresh the page, all progress will be lost.</p>
     </div>
     <form hx-post="{{ url_for("model_internal_operations") }}"
           hx-swap="transition:true">
