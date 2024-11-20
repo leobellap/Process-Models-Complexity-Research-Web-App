@@ -34,6 +34,7 @@ def save_user_data(user_data, retries=3, delay=1):
                 user_id = result.fetchone()[0]
                 conn.commit()
             return user_id
+
         except Exception as e:
             print(f"Attempt {attempt + 1} failed: {e}")
             if attempt < retries - 1:
@@ -42,93 +43,129 @@ def save_user_data(user_data, retries=3, delay=1):
                 raise
 
 
-def save_internal_op(user_data):
-    with engine.connect() as conn:
-        query = text(
-            "INSERT INTO internal_op (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
-            "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
-        )
-        conn.execute(
-            query,
-            [
-                {
-                    "user_id": user_data["user_id"],
-                    "event_rate": user_data["event_rate"],
-                    "path_rate": user_data["path_rate"],
-                    "understandability": user_data["understandability"],
-                    "correctness": user_data["correctness"],
-                    "usefulness": user_data["usefulness"],
-                    "coordinates": user_data["coordinates"],
-                }
-            ],
-        )
-        conn.commit()
+def save_internal_op(user_data, retries=3, delay=1):
+    for attempt in range(retries):
+        try:
+            with engine.connect() as conn:
+                query = text(
+                    "INSERT INTO internal_op (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
+                    "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
+                )
+                conn.execute(
+                    query,
+                    [
+                        {
+                            "user_id": user_data["user_id"],
+                            "event_rate": user_data["event_rate"],
+                            "path_rate": user_data["path_rate"],
+                            "understandability": user_data["understandability"],
+                            "correctness": user_data["correctness"],
+                            "usefulness": user_data["usefulness"],
+                            "coordinates": user_data["coordinates"],
+                        }
+                    ],
+                )
+                conn.commit()
+
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
+            else:
+                raise
 
 
-def save_billing(user_data):
-    with engine.connect() as conn:
-        query = text(
-            "INSERT INTO billing (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
-            "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
-        )
-        conn.execute(
-            query,
-            [
-                {
-                    "user_id": user_data["user_id"],
-                    "event_rate": user_data["event_rate"],
-                    "path_rate": user_data["path_rate"],
-                    "understandability": user_data["understandability"],
-                    "correctness": user_data["correctness"],
-                    "usefulness": user_data["usefulness"],
-                    "coordinates": user_data["coordinates"],
-                }
-            ],
-        )
-        conn.commit()
+def save_billing(user_data, retries=3, delay=1):
+    for attempt in range(retries):
+        try:
+            with engine.connect() as conn:
+                query = text(
+                    "INSERT INTO billing (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
+                    "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
+                )
+                conn.execute(
+                    query,
+                    [
+                        {
+                            "user_id": user_data["user_id"],
+                            "event_rate": user_data["event_rate"],
+                            "path_rate": user_data["path_rate"],
+                            "understandability": user_data["understandability"],
+                            "correctness": user_data["correctness"],
+                            "usefulness": user_data["usefulness"],
+                            "coordinates": user_data["coordinates"],
+                        }
+                    ],
+                )
+                conn.commit()
+
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
+            else:
+                raise
 
 
-def save_remote(user_data):
-    with engine.connect() as conn:
-        query = text(
-            "INSERT INTO remote (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
-            "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
-        )
-        conn.execute(
-            query,
-            [
-                {
-                    "user_id": user_data["user_id"],
-                    "event_rate": user_data["event_rate"],
-                    "path_rate": user_data["path_rate"],
-                    "understandability": user_data["understandability"],
-                    "correctness": user_data["correctness"],
-                    "usefulness": user_data["usefulness"],
-                    "coordinates": user_data["coordinates"],
-                }
-            ],
-        )
-        conn.commit()
+def save_remote(user_data, retries=3, delay=1):
+    for attempt in range(retries):
+        try:
+            with engine.connect() as conn:
+                query = text(
+                    "INSERT INTO remote (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
+                    "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
+                )
+                conn.execute(
+                    query,
+                    [
+                        {
+                            "user_id": user_data["user_id"],
+                            "event_rate": user_data["event_rate"],
+                            "path_rate": user_data["path_rate"],
+                            "understandability": user_data["understandability"],
+                            "correctness": user_data["correctness"],
+                            "usefulness": user_data["usefulness"],
+                            "coordinates": user_data["coordinates"],
+                        }
+                    ],
+                )
+                conn.commit()
+
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
+            else:
+                raise
 
 
-def save_sepsis(user_data):
-    with engine.connect() as conn:
-        query = text(
-            "INSERT INTO sepsis (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
-            "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
-        )
-        conn.execute(
-            query,
-            [
-                {
-                    "user_id": user_data["user_id"],
-                    "event_rate": user_data["event_rate"],
-                    "path_rate": user_data["path_rate"],
-                    "understandability": user_data["understandability"],
-                    "correctness": user_data["correctness"],
-                    "usefulness": user_data["usefulness"],
-                    "coordinates": user_data["coordinates"],
-                }
-            ],
-        )
-        conn.commit()
+def save_sepsis(user_data, retries=3, delay=1):
+    for attempt in range(retries):
+        try:
+            with engine.connect() as conn:
+                query = text(
+                    "INSERT INTO sepsis (user_id, event_rate, path_rate, understandability, correctness, usefulness, coordinates) "
+                    "VALUES (:user_id, :event_rate, :path_rate, :understandability, :correctness, :usefulness, :coordinates)"
+                )
+                conn.execute(
+                    query,
+                    [
+                        {
+                            "user_id": user_data["user_id"],
+                            "event_rate": user_data["event_rate"],
+                            "path_rate": user_data["path_rate"],
+                            "understandability": user_data["understandability"],
+                            "correctness": user_data["correctness"],
+                            "usefulness": user_data["usefulness"],
+                            "coordinates": user_data["coordinates"],
+                        }
+                    ],
+                )
+                conn.commit()
+
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
+            else:
+                raise
