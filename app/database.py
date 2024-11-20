@@ -66,7 +66,7 @@ def save_internal_op(user_data, retries=3, delay=1):
                     ],
                 )
                 conn.commit()
-
+            break
         except Exception as e:
             print(f"Attempt {attempt + 1} failed: {e}")
             if attempt < retries - 1:
@@ -98,7 +98,7 @@ def save_billing(user_data, retries=3, delay=1):
                     ],
                 )
                 conn.commit()
-
+            break
         except Exception as e:
             print(f"Attempt {attempt + 1} failed: {e}")
             if attempt < retries - 1:
@@ -130,7 +130,7 @@ def save_remote(user_data, retries=3, delay=1):
                     ],
                 )
                 conn.commit()
-
+            break
         except Exception as e:
             print(f"Attempt {attempt + 1} failed: {e}")
             if attempt < retries - 1:
@@ -162,7 +162,7 @@ def save_sepsis(user_data, retries=3, delay=1):
                     ],
                 )
                 conn.commit()
-
+            break
         except Exception as e:
             print(f"Attempt {attempt + 1} failed: {e}")
             if attempt < retries - 1:
