@@ -6,7 +6,7 @@ Link to the project: <https://complexity-survey.ru/>
 
 ![example gif](animation-compressed.gif)
 
-Key features:
+## Key features:
 
 1. Developed and designed frontend with HTML, Tailwind CSS, JavaScript and Figma.
 2. Utilized Python, SQLAlchemy and Flask for backend development.
