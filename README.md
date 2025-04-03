@@ -1,18 +1,30 @@
-## Process Models Complexity Research Web App
+# Process Models Complexity Research Web App
 
-The goal of this web application is - to gather and analyze human perceptions of process models. Participants provide demographic information and subsequently rate various process models, enabling in depth studies on model interpretability and ideal metrics for evaluating model complexity and understandability.
+This web application is designed to gather and analyze human perceptions of process models. It allows participants to provide demographic information and rate various process models, facilitating in-depth studies on model interpretability and identifying ideal metrics for evaluating model complexity and understandability.
 
-Link to the project: <https://complexity-survey.ru/>
+**Project Link:** [Process Models Complexity Research](https://complexity-survey.ru/)
 
-![example gif](animation-compressed.gif)
+![Example GIF](animation-compressed.gif)
 
-### Key features:
+## Key Features
 
-1. Developed and designed frontend with HTML, Tailwind CSS, JavaScript and Figma.
-2. Utilized Python, HTMX, SQLAlchemy and Flask for backend development.
-3. Created a mouse tracking script to track the movement of the handle of a 2D slider.
-4. Implemented PostgreSQL database to store user's inputs, created necessary tables.
-5. Containerized the application using Docker Compose.
-6. Configured Nginx server and hosted project on Yandex.Cloud.
-7. Created restart policy to restart Docker Compose on virtual machine's boot.
-8. Integrated Yandex.Metrica for a detailed user interaction tracking.
+- **Frontend Development:**
+  - Built using **HTML**, **Tailwind CSS**, and **JavaScript**.
+  - Designed UI/UX using **Figma** for a seamless user experience.
+
+- **Backend Development:**
+  - Utilized **Python** with **Flask** for server-side logic.
+  - Implemented **HTMX** for dynamic, real-time web interactions.
+  - Used **SQLAlchemy** to interact with the database.
+
+- **Data Tracking and Analytics:**
+  - Developed a **mouse tracking script** to capture the movement of a 2D slider handle for more precise user input analysis.
+  - Integrated **Yandex.Metrica** to track detailed user interactions for research insights.
+
+- **Database Management:**
+  - Set up a **PostgreSQL** database to store user inputs and designed the necessary tables for efficient data storage.
+
+- **Containerization & Deployment:**
+  - Containerized the application with **Docker Compose** for easy deployment and scalability.
+  - Configured an **Nginx** server to host the project on **Yandex.Cloud**.
+  - Implemented a **restart policy** to automatically restart Docker Compose on the virtual machine's boot.
