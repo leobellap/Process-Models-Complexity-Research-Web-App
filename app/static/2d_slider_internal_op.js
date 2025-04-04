@@ -13,7 +13,7 @@ var imageCacheIntOp = {};
 function preloadImages() {
   for (var step = 0; step < gridSize; step += 1) {
     for (var difficulty = 0; difficulty < gridSize; difficulty += 1) {
-      var src = `/static/images/models/Dataset_1/Dataset-1_AR-${step}0_PR/Dataset-1_AR-${step}0_PR-${difficulty}0.svg`;
+      var src = `/static/images/models/Dataset_5/Dataset-5_AR-${step}0_PR/Dataset-5_AR-${step}0_PR-${difficulty}0.svg`;
       if (!imageCacheIntOp[src]) {
         var img = new Image();
         img.src = src;
@@ -24,7 +24,7 @@ function preloadImages() {
 }
 
 function updateImage(x, y) {
-  var src = `/static/images/models/Dataset_1/Dataset-1_AR-${x}0_PR/Dataset-1_AR-${x}0_PR-${y}0.svg`;
+  var src = `/static/images/models/Dataset_5/Dataset-5_AR-${x}0_PR/Dataset-5_AR-${x}0_PR-${y}0.svg`;
   if (imageCacheIntOp[src]) {
     processImageIntOp.src = src;
   } else {
